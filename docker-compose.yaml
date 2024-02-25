@@ -1,0 +1,13 @@
+version: "3"
+services:
+  app:
+    container_name: nodeapp-container
+    image: node:18
+    working_dir: ${PWD}
+    command: bash -c "npm i && npm run start"
+    restart: always
+    ports: 
+      - "3000:3000"
+    volumes:
+      - ./build/:${PWD}/build/
+      - ./package.json:${PWD}/package.json
