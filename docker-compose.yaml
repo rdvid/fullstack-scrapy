@@ -1,5 +1,13 @@
 version: "3"
 services:
+
+  redis:
+    image: redis:7.0-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis:/data
+
   app:
     container_name: nodeapp-container
     image: node:18
@@ -8,6 +16,8 @@ services:
     restart: always
     ports: 
       - "3000:3000"
-    volumes:
       - ./build/:${PWD}/build/
       - ./package.json:${PWD}/package.json
+
+  volumes:
+    redis:
