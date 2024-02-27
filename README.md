@@ -19,6 +19,18 @@
 
 <p align="center"><italic>"I told my girl that i am a data scientist, but all I did was spent the past three days scrapping amazon products while trying to avoid antiscrapping firewall and copyright infringement. I hope that it counts like a Msc. Degree"</italic></p>
 
+**Table of Contents**
+
+- [What is it](#💡-what-is-it)
+- [Highlights](#✨-highlights)
+- [Requirements](#⚠️-requirements)
+- [How to use](#📖-how-to-use)
+- [Next Features](#⚙️-next-features)
+- [Collabs](#📫-find-a-bug-or-have-any-suggestion)
+  - [Pull Requests](#pull-requests)
+  - [Issues](#issues)
+- [About me](#⭐-meet-the-dev)
+
 ## 💡 What is it?
 
 A fullstack application designed to scrapping amazon homepage and get infos like products name, prices, reviews and image urls.
@@ -48,45 +60,35 @@ A fullstack application designed to scrapping amazon homepage and get infos like
 Some features that i'm proud for implement:
 
 - Cache middleware to improve data fetch
-- Dockerized (now it works in OUR machine)
+- Dockerized (it works in OUR machine)
 - Swagger
+- Unit tests with Jest
+- E2E tests with Playwright
 
-## 📖 How to use
+## ⚠️ Requirements
 
-### Requirements
-
+You'll need:
+- Node (18 or higher)
 - Docker
 - Docker-compose
 
-in order to just run the application and use it, go to root directory in wsl terminal with docker running and and run `docker-compose up`
+In order to run the backend application and use it with the frontend UI, you will need to run `docker-compose up` in wsl2 or linux terminal in the root of project directory in your local environment.
 
-next, you can go with your browser to `http://localhost:3000/`
+**This command will setup the local `Redis` container, crucial to provide api performance.**
 
-simple as it.
+After this, you can run `npm install` to install all dependencies and run `npm run dev` to serve the api with nodemon in your local machine.
 
+You can use it with with a API Client such as Postman or Insomnia or use our GUI (highly recommended). To use it follow the [Frontend docs](./frontend/README.md)
 
-### Running locally
+## 📖 How to use
 
-will need:
-- Backend:
-  - Docker
-  - Docker-compose
-  - Wsl2
-- Frontend:
-  - Live-server extension (VSCode) 
-
-### Running Locally
-
-
-
-### Development 
-In development environment you'll need more than just Docker
-
+The api have just one route `/api/scrape?keyword=` where keyword is a string. The api will do a request to amazon using the keyword as a search param and will use cheerio to scrap all the data from the first page and deliver back as a json.
 
 ## ⚙️ Next Features
 
 The development process starts but never ends. Next features will be focused on:
 
+- [ ] Swagger UI implement
 - [ ] Implement other data sources aside of Amazon (i.e: Olx, Kabum, Submarino)
 - [ ] Login system and Dashboard for data analisys
 - [ ] Maybe a email sender for PDF report generation with Aws lambda for cloud study purposes (?)
@@ -115,6 +117,10 @@ The development process starts but never ends. Next features will be focused on:
     - `Enhancement` for new features
     - `Bug` for some issue in usability
 6. Click “Submit new issue” to create the issue.
+
+
+
+## ⭐ Meet the dev
 
 <h3 align=center>With ❤️ by:</h2>
 
