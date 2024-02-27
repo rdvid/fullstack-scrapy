@@ -4,9 +4,8 @@ dotenv.config();
 
 const redis = new Redis({
     port: Number(process.env.REDIS_PORT) || 6379,
-    tls: {
-        timeout: 300 // 5 minutes
-    }
 });
+
+redis.set('key', 100, 'EX', 300)
 
 export default redis;

@@ -1,13 +1,16 @@
 import express from 'express'
 import dotenv from 'dotenv';
 import route from './router';
+import cors from 'cors';
 
 dotenv.config();
 const port = process.env.PORT || 3000;
-
 const app = express();
 
-app.use(express.json())
-app.use(route)
+// dev environment only, critical security role. 
+app.use(cors());
+
+app.use(express.json());
+app.use(route);
 
 app.listen(port)
