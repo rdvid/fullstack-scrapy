@@ -7,7 +7,7 @@
     "start": "node build/index.js",
     "dev": "nodemon",
     "build": "npx tsc",
-    "serve": "parcel frontend/src/index.html",
+    "serve": "parcel frontend/src/index.html --dist-dir=frontend/dist --cache-dir=frontend/.parcel-cache",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix",
     "test": "jest",
