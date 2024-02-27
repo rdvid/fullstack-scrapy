@@ -68,14 +68,25 @@ nav button[type="submit"] {
 #card-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* grid-template-rows: 1fr; */
+    grid-template-rows: 1fr;
     grid-column-gap: 2px;
     grid-row-gap: 2px;
     place-items: center;
-
+    align-items: stretch;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 574px){
+    
+    #card-container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 2px;
+        grid-row-gap: 2px;
+        place-items: center;
+    }
+}
+
+@media only screen and (min-width: 575px) and (max-width: 875px) {
     nav input[type="text"] {
       font-size: 14px;
     }
@@ -83,6 +94,17 @@ nav button[type="submit"] {
       font-size: 14px;
     }
 
+    #card-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 2px;
+        grid-row-gap: 2px;
+        place-items: center;
+    }
+
+    .card {
+        width: 90%; /* Adjust width for smaller screens */
+    }
     
 }
 
@@ -96,33 +118,45 @@ nav button[type="submit"] {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 300px; /* Adjust width as needed */
+    width: 250px; /* Adjust width as needed */
 }
-  
+
 .card-header {
-    padding-bottom: 10px;
+    padding: 10px 0;
     border-bottom: 1px solid #ddd;
 }
-  
+
+.card-header > img {
+    border-radius: 5px;
+}
+
 .card-body {
     flex: 1; /* Allow body to grow */
     font-size: 12px;
+    padding: 4%;
+    border-radius: 4px;
+    margin-bottom: 20px 0;
 }
   
 .card-footer {
     display: flex;
     width: 100%;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+.card-footer > span:last-child {
+    background-color: rgb(97, 194, 250);
+}
+
+.chip {
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
   
-@media only screen and (max-width: 768px) {
-    .card {
-        width: 90%; /* Adjust width for smaller screens */
-    }
-
-}
-
 .toast {
     position: absolute;
     top: 0;
@@ -130,6 +164,7 @@ nav button[type="submit"] {
     transform: translateX(-50%);
     color: #000;
     font-weight: 600;
+    margin: 10px;
     padding: 10px 20px;
     border-radius: 5px;
     opacity: 0;
@@ -148,4 +183,8 @@ nav button[type="submit"] {
 
 .toast.show {
     opacity: 1;
+}
+
+.fa-star{
+    color: #FFD43B;
 }
