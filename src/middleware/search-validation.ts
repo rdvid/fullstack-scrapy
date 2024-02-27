@@ -4,13 +4,13 @@ const searchValidation = async (req: Request, res: Response, next: NextFunction)
     let {keyword} = req.query;
 
     if(!keyword){
-        return res.status(401).json({
+        return res.status(400).json({
             message: "keyword must be provided"
         })
     }
 
     if(typeof keyword !== 'string'){
-        return res.status(401).json({
+        return res.status(400).json({
             message: "keyword must be an string"
         })
     }
