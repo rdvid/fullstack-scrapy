@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Scrappy</title>
+  <link rel="stylesheet" href="style/index.css">
+  <link rel="icon" href="./../public/icon.svg">
+  <script src="https://kit.fontawesome.com/6b3a9e549b.js" crossorigin="anonymous"></script>
+  <script defer src="scripts.js"></script>
+</head>
+<body onload="checkStorage()">
+
+  <h1>Market Scrappy</h1>
+  <nav>
+    <form onsubmit="handleSearch(event)">
+      <input type="text" name="search" placeholder="Search...">
+      <button class="btn-search" type="submit">Search <i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+  </nav>    
+  
+  <div id="card-container">
+    <div class="card">
+      <div class="card-header">
+        <img src="https://avatars.githubusercontent.com/u/60834135" height="200" width="200" alt="something">
+      </div>
+      <div class="card-body">
+        <h2>This is the card body content. You can add any type of content here, like text, images, or even other cards.</h2>
+      </div>
+      <div class="card-footer">
+        <span>4.5 out of 5</span>
+        <span>$29.99</span>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
