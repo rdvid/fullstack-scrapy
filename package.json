@@ -1,20 +1,22 @@
 {
-  "name": "fetching",
-  "version": "1.0.0",
-  "description": "",
+  "name": "mscrappyapi",
+  "version": "1.0.2",
+  "description": "REST Api for data scrapping",
   "main": "index.js",
   "scripts": {
-    "start": "node build/index.js",
+    "start": "ts-node src/index.ts",
     "dev": "nodemon",
     "build": "npx tsc",
-    "serve": "parcel frontend/src/index.html --dist-dir=frontend/dist --cache-dir=frontend/.parcel-cache",
+    "serve": "parcel frontend/src/index.html --dist-dir=frontend/dist --cache-dir=frontend/.prod/.parcel-cache",
+    "serve:dev": "parcel serve frontend/src/index.html --dist-dir=frontend/dist --cache-dir=frontend/.dev/.parcel-cache",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix",
     "test": "jest",
+    "test:coverage": "jest --coverage --coverageReporters text-summary",
     "e2e": "playwright test --reporter=html",
     "e2e:report": "playwright show-report"
   },
-  "keywords": [],
+  "keywords": ["api", "rest", "express", "typescript", "jest"],
   "author": "Rafael David",
   "license": "ISC",
   "devDependencies": {
