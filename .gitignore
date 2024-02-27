@@ -4,8 +4,11 @@ build
 .env
 .env.*
 .parcel-cache
+.dev
+.prod
 /test-results/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
 frontend/e2e/e2e-results
+coverage
