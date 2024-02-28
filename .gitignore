@@ -12,4 +12,4 @@ build
 frontend/e2e/e2e-results
 coverage
 script.sh
-.logs
+*.log
