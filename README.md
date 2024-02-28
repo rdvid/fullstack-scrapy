@@ -90,6 +90,8 @@ After run `npm install` and `npm run dev` you'll able to perform requests in pos
 
 ## 📖 How to use
 
+✨ You can check our api through `https://fullstack-scrapy.onrender.com/api/scrape?keyword=` ✨
+
 The api have just one route `/api/scrape?keyword=` where keyword is a string. The api will do a request to amazon using the keyword as a search param and will use cheerio to scrap all the data from the first page and deliver back as a json.
 
 ### Jest tests
