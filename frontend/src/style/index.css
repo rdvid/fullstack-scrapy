@@ -6,6 +6,9 @@
     --error: rgb(233, 87, 87);
 }
 
+a {
+    text-decoration: none;
+}
 
 body {
   -ms-overflow-style: none; 
@@ -145,8 +148,10 @@ nav button[type="submit"] {
     justify-content: space-between;
 }
 
-.card-footer > span:last-child {
+.card-footer > a:last-child {
     background-color: rgb(97, 194, 250);
+    font-weight: 400;
+    color: #000;
 }
 
 .chip {
@@ -155,6 +160,7 @@ nav button[type="submit"] {
     cursor: pointer;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: fit-content;
 }
   
 .toast {

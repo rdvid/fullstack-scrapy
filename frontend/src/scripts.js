@@ -72,17 +72,19 @@ async function loadCards(cards){
         cardFooter.classList.add('card-footer');
 
         const spanRating = document.createElement('span');
-        const spanPrice = document.createElement('span');
+        const spanPrice = document.createElement('a');
 
         spanRating.classList.add('chip');
         spanPrice.classList.add('chip');
 
+        // setting reviews span
         const starIcon = '<i class="fa-solid fa-star"></i>';
-        spanRating.innerHTML = `${starIcon} ${card.rating.replace("out of 5 stars", "of 5.0")} (${card.reviewsCount})`;
+        spanRating.innerHTML = `${starIcon} ${card.rating.replace("out of 5 stars", "")} (${card.reviewsCount})`;
         if(!card.rating){
             spanRating.innerHTML = `${starIcon} no reviews (0)`;
         }
         
+        // setting price span btn
         const cartIcon = '<i class="fa-solid fa-cart-shopping"></i> ';
         spanPrice.innerHTML = cartIcon;
         if(card.price == "0"){
@@ -91,6 +93,9 @@ async function loadCards(cards){
         }else{
             spanPrice.innerHTML += `$${card.price}`;
         }
+
+        spanPrice.href = card.productPageUrl;
+        spanPrice.target = '_blank';
 
         cardFooter.append(spanRating, spanPrice);
 
