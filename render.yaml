@@ -5,17 +5,21 @@ services:
     script: |
       #!/bin/bash
 
-      URL="https://fullstack-scrapy.onrender.com/api/scrape?keyword="
+      PING_URL="https://fullstack-scrapy.onrender.com/api/scrape"
+      GET_URL="https://fullstack-scrapy.onrender.com/api/scrape?keyword="
 
-      # Log the start of the ping
-      echo "$(date) - Starting ping for $URL" >> ./ping.log
+      # Log the start of the ping and GET request
+      echo "$(date) - Starting ping for $PING_URL and GET request for $GET_URL" >> ./.logs/ping.log
 
       # Execute the ping command and redirect output to log file
-      curl -sL --output /dev/null "$URL" 2>&1 >> ./ping.log
+      curl -sL --output /dev/null "$PING_URL" 2>&1 >> ./.logs/ping.log
 
-      # Log the end of the ping
-      echo "$(date) - Finished ping for $URL" >> ./ping.log
-      
+      # Make the GET request and append response to log file
+      curl -sL -o - "$GET_URL" >> ./.logs/ping.log
+
+      # Log the end of the ping and GET request
+      echo "$(date) - Finished ping and GET request" >> ./.logs/ping.log
+
 working_dir: ./
 volumes:
-  - ./ping.log:./ping.log
+  - ./.logs/ping.log:./.logs/ping.log
