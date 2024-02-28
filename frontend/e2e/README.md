@@ -68,4 +68,4 @@ so before you create a file, check if a block in one file matches with your test
 * **Expand test coverage:** Continuously add new test cases to cover all aspects of the project's functionality.
 * **Integrate with CI/CD:** Integrate automated testing into your continuous integration and continuous delivery (CI/CD) pipeline for seamless testing and deployment.
 * **Explore advanced testing techniques:** Consider incorporating more advanced testing techniques like end-to-end (E2E) testing or performance testing as needed.
-
+* **Improve documentation** Insert test steps template comments strings for each test case and more details about the mocking process to intercept requests and furthermore develop a proper local test environment

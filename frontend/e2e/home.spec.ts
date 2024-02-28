@@ -8,18 +8,27 @@ test('has title', async ({ page }) => {
 });
 
 test('send empty request should display an error toast', async ({ page }) => {
-  await page.goto('http://localhost:1234/');
+  // all requests made to url above will be solved and returned the mocked value
+  await page.route('http://localhost:8000/api/scrape?keyword=', (route) => {
+        route.fulfill({
+            status: 400,
+            body: JSON.stringify({ "message": "keyword must be provided" }),
+        });
+    });
 
-  // Click the get started link.
+  // go to home
+  await page.goto('http://localhost:1234/');  
+
+  // evaluate search bar render and send a empty request
   const searchBar = page.getByPlaceholder('Search...');
   await expect(searchBar).toBeVisible();
   const btnSearch = page.getByRole('button');
-
   await btnSearch.click();
-  await expect(page.getByText('keyword must be provided')).toBeVisible();
 
+  // notify toast must appear and const CSS classes toast, show and error
+  await expect(page.getByText('keyword must be provided')).toBeVisible();
   const toast = page.getByText('keyword must be provided');
-  await expect(toast).toHaveClass('error');
+  await expect(toast).toHaveClass('toast show error');
   
 });
 
