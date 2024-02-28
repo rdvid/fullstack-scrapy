@@ -1,8 +1,9 @@
 async function handleSearch (e){
     e.preventDefault();
     try {
-        const response = await fetch(`http://localhost:8000/api/scrape?keyword=${e.target.search.value}`);
-        const data =  await response.json();
+        showNotification(42, "Please wait...");
+        const response = await fetch(`http://localhost:8000/api/scrape?keyword=${e.target.search.value}`);        
+        const data = await response.json();
 
         if (response.status !== 200){          
             return await showNotification(response.status, data.message)    
@@ -21,6 +22,11 @@ async function showNotification(status, message){
     if(status !== 200){
         toastColorClass = 'error';
     }
+    
+    if(status === 42){
+        toastColorClass = 'warning';
+    }
+
     var toast = document.createElement('div');
     toast.classList.add('toast', 'show', toastColorClass);
     toast.textContent = message;
@@ -97,8 +103,17 @@ async function loadCards(cards){
         cardContainer.append(cardComponent);
     }
     document.body.append(cardContainer);
-    await showNotification(200, "all works fine!")
+    localStorage.setItem('last-request', JSON.stringify(cards));
+    await showNotification(200, "all works fine!");
 }
 
 // TODO: first load check localStorage
-// async function checkStorage(){}
+async function checkStorage(e){
+    e.preventDefault();
+    let lastRequest = localStorage.getItem('last-request');
+    if(lastRequest){
+        let data = JSON.parse(lastRequest);
+        console.log(data);
+        await loadCards(data);
+    }
+}
