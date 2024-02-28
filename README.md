@@ -40,8 +40,8 @@ A fullstack application designed to scrapping amazon homepage and get infos like
 
 We're on!!!
 If you want to use the service:
-- ✨ You can use our service through [Web-Site]('https://frontend-scrappy.netlify.app/') ✨
-- ✨ You can check our REST API through [APi]('https://fullstack-scrapy.onrender.com/api/scrape?keyword=') ✨
+- ✨ You can use our service through [Web-Site](https://frontend-scrappy.netlify.app/) ✨
+- ✨ You can check our REST API through [APi](https://fullstack-scrapy.onrender.com/api/scrape?keyword=) ✨
 
 
 ### 🔧 Technologies i used
