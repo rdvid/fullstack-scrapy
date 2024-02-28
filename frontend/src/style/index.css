@@ -172,13 +172,13 @@ nav button[type="submit"] {
 }
 
 .warning{
-    background-color: var(--warning);
+    background-color: var(--warning) !important;
 }
 .success{
-    background-color: var(--success);
+    background-color: var(--success) !important;
 }
 .error{
-    background-color: var(--error);
+    background-color: var(--error) !important;
 }
 
 .toast.show {

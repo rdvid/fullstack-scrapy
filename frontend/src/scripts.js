@@ -1,7 +1,7 @@
 async function handleSearch (e){
     e.preventDefault();
     try {
-        const response = await fetch(`http://localhost:3000/api/scrape?keyword=${e.target.search.value}`);
+        const response = await fetch(`http://localhost:8000/api/scrape?keyword=${e.target.search.value}`);
         const data =  await response.json();
 
         if (response.status !== 200){          
@@ -71,16 +71,20 @@ async function loadCards(cards){
         spanRating.classList.add('chip');
         spanPrice.classList.add('chip');
 
-        const starIcon = document.createElement('i');
-        starIcon.classList.add('fa-solid', 'fa-star'); 
-        // starIcon.className = "fa-solid fa-star";
-        spanRating.append(starIcon);
-        spanRating.textContent = `${card.rating.replace("out of 5 stars", "of 5")} (${card.reviewsCount})`;
+        const starIcon = '<i class="fa-solid fa-star"></i>';
+        spanRating.innerHTML = `${starIcon} ${card.rating.replace("out of 5 stars", "of 5.0")} (${card.reviewsCount})`;
+        if(!card.rating){
+            spanRating.innerHTML = `${starIcon} no reviews (0)`;
+        }
         
-        const cartIcon = document.createElement('i');
-        cartIcon.classList.add('fa-solid', 'fa-cart-shopping'); 
-        spanPrice.append(cartIcon);
-        spanPrice.textContent = ` ${card.price}`;
+        const cartIcon = '<i class="fa-solid fa-cart-shopping"></i> ';
+        spanPrice.innerHTML = cartIcon;
+        if(card.price == "0"){
+            spanPrice.innerHTML = 'unavailable';
+            spanPrice.classList.add('error');
+        }else{
+            spanPrice.innerHTML += `$${card.price}`;
+        }
 
         cardFooter.append(spanRating, spanPrice);
 
@@ -92,7 +96,8 @@ async function loadCards(cards){
 
         cardContainer.append(cardComponent);
     }
-    document.body.append(cardContainer)
+    document.body.append(cardContainer);
+    await showNotification(200, "all works fine!")
 }
 
 // TODO: first load check localStorage
