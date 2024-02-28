@@ -1,0 +1,21 @@
+services:
+  cron-scrappy-api:
+    type: cron
+    schedule: "*/10 * * * *"
+    script: |
+      #!/bin/bash
+
+      URL="https://fullstack-scrapy.onrender.com/api/scrape?keyword="
+
+      # Log the start of the ping
+      echo "$(date) - Starting ping for $URL" >> ./ping.log
+
+      # Execute the ping command and redirect output to log file
+      curl -sL --output /dev/null "$URL" 2>&1 >> ./ping.log
+
+      # Log the end of the ping
+      echo "$(date) - Finished ping for $URL" >> ./ping.log
+      
+working_dir: ./
+volumes:
+  - ./ping.log:./ping.log
