@@ -22,7 +22,11 @@
 **Table of Contents**
 
 - [What is it](#💡-what-is-it)
+  - [Live Demo](#live-demo)
+  - [Technologies](#🔧-technologies-i-used)
 - [Highlights](#✨-highlights)
+  -[Process fluxogram](#process-architeture)
+  -[Deploy Archteture](#live-demo-architeture)
 - [Requirements](#⚠️-requirements)
 - [How to use](#📖-how-to-use)
 - [Next Features](#⚙️-next-features)
@@ -34,7 +38,6 @@
 ## 💡 What is it?
 
 A fullstack application designed to scrapping amazon homepage and get infos like products name, prices, reviews and image urls.
-
 
 ### Live Demo 
 
@@ -77,6 +80,41 @@ Some features that i'm proud for implement:
 - Unit tests with Jest
 - E2E tests with Playwright
 
+### Process architeture
+
+<div align="center">
+  <h3>A basic request follows this fluxogram:</h3>
+  <img src="https://f005.backblazeb2.com/file/debbuggers/market-scrappy.drawio.png" alt="request fluxogram">
+</div>
+
+- User make a input through searchbar.
+- FetchAPI will perform a request to API.
+- Before perform a response, redis will try to locate a key/value with the keyword provided.
+- If not find any, the Cheerio inside express controller will perform a request, get the html from amazon page and extract all the data necessary.
+- After all, controller will return an array of products (or an error).
+
+**Whenever the user enter the page, the localStorage will be consulted. The last successful request products will be storage and will be rendered in the next visit**
+
+### Live Demo Architeture
+
+<div align="center">
+  <h3>Live Deploy follows this fluxogram:</h3>
+  <img src="https://f005.backblazeb2.com/file/debbuggers/market-scrappy-2.jpg" alt="deploy fluoxgram">
+</div>
+
+- The main source code (here o/) has the fullstack application.
+  - Backend
+    - Cheerio inside Express
+    - Express inside root repository in Github
+    - All the repo deployed by Render through github integration
+  - Frontend
+    - Just vanilla application powered by [Parcel](https://parceljs.org/) and hosted by [Netfily](https://www.netlify.com/)
+    - Storage on [Bitbucket](https://bitbucket.org/product)
+- In order to deploy, i'm using [Render](https://render.com/)
+  - Live [Redis](https://redis.io/) instance is another application aside hosted in render too 
+
+**Honored mention to a CronJob hosted in [Cron-job-free](https://cron-job.org/en/) to make api constantly alive**
+
 ## ⚠️ Requirements
 
 You'll need:
@@ -103,6 +141,27 @@ After run `npm install` and `npm run dev` you'll able to perform requests in pos
 ## 📖 How to use
 
 The api have just one route `/api/scrape?keyword=` where keyword is a string. The api will do a request to amazon using the keyword as a search param and will use cheerio to scrap all the data from the first page and deliver back as a json.
+
+To run locally, clone the `.env.default` and remove the `.default` of the copy. 
+
+```
+
+  USER_AGENT='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'
+
+  # Redis
+  REDIS_HOST='127.0.0.1'
+  REDIS_PORT=6379
+  REDIS_USERNAME=
+  REDIS_PASSWORD=
+
+```
+
+As you can see, the `REDIS_HOST` points to your local ip by default, considering that you have a docker image running through your docker and you want to run the application locally, this is enough setup to start.
+
+change this variables to alter the redis instance that you want to use.
+
+`USER_AGENT` is a cheerio requirement to bypass Amazon firewall. Without a default user agent the request will fall into suspicious client and will be rejected. You can use the default if you want or catch one from a header of some request headers from your local browser.
+
 
 ### Jest tests
 
