@@ -1,12 +1,12 @@
 # Frontend Application Readme
 
-This readme provides instructions for running market scrapy frontend application built with HTML, CSS, and JavaScript.
+This readme provides instructions for running market scrappy frontend application built with HTML, CSS, and JavaScript.
 
 **Table of Contents**
 
 * [Prerequisites](#prerequisites)
 * [Installation](#installation)
-* [Usage](#)
+* [Usage](#how-to-use)
 * [E2E Tests](./e2e/README.md)
 * [Next Features](#next-features)
 

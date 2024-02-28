@@ -68,21 +68,33 @@ Some features that i'm proud for implement:
 ## ⚠️ Requirements
 
 You'll need:
-- Node (18 or higher)
+- Node (18 or higher) (optional)
 - Docker
 - Docker-compose
 
-In order to run the backend application and use it with the frontend UI, you will need to run `docker-compose up` in wsl2 or linux terminal in the root of project directory in your local environment.
+In order to run the backend application locally and use it with the frontend UI, you will need to run `docker-compose up --build` in wsl2 or linux terminal in the root of project directory in your local environment.
 
 **This command will setup the local `Redis` container, crucial to provide api performance.**
 
-After this, you can run `npm install` to install all dependencies and run `npm run dev` to serve the api with nodemon in your local machine.
+Thats all. I swear. xD.
 
 You can use it with with a API Client such as Postman or Insomnia or use our GUI (highly recommended). To use it follow the [Frontend docs](./frontend/README.md)
+
+If your goal is to run locally and make editions in this application or even work with her in local dev environ thigs will change a bit.
+
+- you'll need at least the `Redis` container up. (mandatory).
+- remove the host property in `src > config > redis.ts`
+
+After run `npm install` and `npm run dev` you'll able to perform requests in postman or proceed to [Frontend docs](./frontend/README.md) normally.
+
 
 ## 📖 How to use
 
 The api have just one route `/api/scrape?keyword=` where keyword is a string. The api will do a request to amazon using the keyword as a search param and will use cheerio to scrap all the data from the first page and deliver back as a json.
+
+### Jest tests
+
+This API have Jest implementation. To work with Jest and learn how things works upon here check the [Unit Test Docs](./tests/README.md)
 
 ## ⚙️ Next Features
 

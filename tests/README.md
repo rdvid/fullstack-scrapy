@@ -12,7 +12,7 @@ This document outlines the structure and local usage of the ``jest`` within this
 
 ### Purpose
 
-The test folder is dedicated to housing all unit tests and file-related.
+The test folder is dedicated to host all unit tests and file-related.
 
 ### Test Folder Structure
 
@@ -36,7 +36,7 @@ The test folder adheres to a clear and organized structure, promoting maintainab
 
 ```
 
-In this project we will work following this order of relevance to put our tests in place: 
+In this project we will work following this order of relevance. To put our tests in right place consider the following: 
 
 1. ```filecontext.spec.ts```
 2. ```describe block to group related tests```
@@ -58,4 +58,5 @@ so before you create a file, check if there's already a block in one file who ma
 * **Expand test coverage:** Continuously add new test cases to cover all aspects of the project's functionality.
 * **Integrate with CI/CD:** Integrate automated testing into your continuous integration and continuous delivery (CI/CD) pipeline for seamless testing and deployment.
 * **Explore advanced testing techniques:** Consider incorporating more advanced testing techniques like end-to-end (E2E) testing or performance testing as needed.
+* **Enhance coverage and mock use:** implement and extend the mock culture upon the implementation
 
