@@ -1,8 +1,8 @@
-FROM node:18
-COPY . app/
-WORKDIR app
-# RUN npm install -g nodemon
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
 RUN npm install
-EXPOSE 3000
-# ENTRYPOINT ["nodemon", "build/index.js"]  
+COPY . .
+RUN npm run build
+EXPOSE 8000
 CMD ["npm", "run", "start"]
