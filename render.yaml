@@ -1,5 +1,5 @@
 services:
-  cron-scrappy-api:
+  cron:
     type: cron
     schedule: "*/10 * * * *"
     script: |
