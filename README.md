@@ -39,9 +39,12 @@ A fullstack application designed to scrapping amazon homepage and get infos like
 ### Live Demo 
 
 We're on!!!
+
 If you want to use the service:
 - ✨ You can use our service through [Web-Site](https://frontend-scrappy.netlify.app/) ✨
 - ✨ You can check our REST API through [APi](https://fullstack-scrapy.onrender.com/api/scrape?keyword=) ✨
+
+**Please have patience to use the live demo. Responses can be a little bit slow due the fact that the service is hosted by `Render` in Free Tier Plan**
 
 
 ### 🔧 Technologies i used
@@ -110,6 +113,8 @@ This API have Jest implementation. To work with Jest and learn how things works 
 The development process starts but never ends. Next features will be focused on:
 
 - [ ] Swagger UI implement
+- [ ] CronJob to preserve live status
+- [ ] Reverse Proxy w/ Anti-robot spam firewall
 - [ ] Implement other data sources aside of Amazon (i.e: Olx, Kabum, Submarino)
 - [ ] Login system and Dashboard for data analisys
 - [ ] Maybe a email sender for PDF report generation with Aws lambda for cloud study purposes (?)
