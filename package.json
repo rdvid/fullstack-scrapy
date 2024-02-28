@@ -16,7 +16,13 @@
     "e2e": "playwright test --reporter=html",
     "e2e:report": "playwright show-report"
   },
-  "keywords": ["api", "rest", "express", "typescript", "jest"],
+  "keywords": [
+    "api",
+    "rest",
+    "express",
+    "typescript",
+    "jest"
+  ],
   "author": "Rafael David",
   "license": "ISC",
   "devDependencies": {
