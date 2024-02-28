@@ -1,11 +1,11 @@
 import cheerio from "cheerio";
 import { Product } from "../@types/product.type";
 import { axiosAmazonInstance as axios } from "../config/axios"
-import { AxiosError, AxiosRequestConfig } from "axios";
+import { AxiosRequestConfig } from "axios";
 
 export const getProducts = async (options: AxiosRequestConfig) => {
     try {     
-        let { data } = await axios.get('', options);
+        let { data } = await axios.get('https://www.amazon.com/s', options);
         let $ = cheerio.load(data);
         const products: Product[] = [];
     
