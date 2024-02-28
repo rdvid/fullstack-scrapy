@@ -35,6 +35,15 @@
 
 A fullstack application designed to scrapping amazon homepage and get infos like products name, prices, reviews and image urls.
 
+
+### Live Demo 
+
+We're on!!!
+If you want to use the service:
+- ✨ You can use our service through [Web-Site]('https://frontend-scrappy.netlify.app/') ✨
+- ✨ You can check our REST API through [APi]('https://fullstack-scrapy.onrender.com/api/scrape?keyword=') ✨
+
+
 ### 🔧 Technologies i used
 
 - Backend: 
@@ -89,8 +98,6 @@ After run `npm install` and `npm run dev` you'll able to perform requests in pos
 
 
 ## 📖 How to use
-
-✨ You can check our api through `https://fullstack-scrapy.onrender.com/api/scrape?keyword=` ✨
 
 The api have just one route `/api/scrape?keyword=` where keyword is a string. The api will do a request to amazon using the keyword as a search param and will use cheerio to scrap all the data from the first page and deliver back as a json.
 
