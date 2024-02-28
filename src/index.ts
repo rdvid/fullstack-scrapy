@@ -4,7 +4,7 @@ import route from './router';
 import cors from 'cors';
 
 dotenv.config();
-const port = process.env.PORT || 3000;
+const port = 8000;
 const app = express();
 
 // dev environment only, critical security role. 
