@@ -3,10 +3,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 //  DEV docker redis
-// const redis = new Redis({
-//     host: 'redis', 
-//     port: Number(process.env.REDIS_PORT) || 6379,
-// });
+//const redis = new Redis({
+    // host: 'redis', 
+    // port: Number(process.env.REDIS_PORT) || 6379,
+//});
 
 //  PROD
 const redis = new Redis({
