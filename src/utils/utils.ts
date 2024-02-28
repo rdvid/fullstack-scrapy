@@ -17,6 +17,8 @@ export const getProducts = async (options: AxiosRequestConfig) => {
                 const rating = $(element).find('i.a-icon.a-icon-star-small>span.a-icon-alt').first().text();
                 const reviewsCount = $(element).find('span.a-size-base.s-underline-text').first().text().replace(',', '.');
                 const imageUrl = $(element).find('img.s-image').prop('src');
+                const productPagePath = $(element).find('div.aok-relative a.a-link-normal').first().prop('href');
+
                 let price = amount ? amount : "0";
                 
                 let product: Product = {
@@ -24,7 +26,8 @@ export const getProducts = async (options: AxiosRequestConfig) => {
                     price,
                     rating,
                     reviewsCount: Number(reviewsCount),
-                    imageUrl
+                    imageUrl,
+                    productPageUrl: `https://amazon.com/${productPagePath}`
                 }
                 products.push(product)
             });

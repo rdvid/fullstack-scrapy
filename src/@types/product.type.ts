@@ -4,4 +4,5 @@ export type Product = {
     rating: string;
     reviewsCount: number;
     imageUrl: string;
+    productPageUrl: string;
 }
