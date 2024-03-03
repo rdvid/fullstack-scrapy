@@ -98,7 +98,7 @@ Some features that i'm proud for implement:
 ### Live Demo Architeture
 
 <div align="center">
-  <h3>Live Deploy follows this fluxogram:</h3>
+  <h3>Live Deploy graphical representation:</h3>
   <img src="https://f005.backblazeb2.com/file/debbuggers/market-scrappy-2.jpg" alt="deploy fluoxgram">
 </div>
 
