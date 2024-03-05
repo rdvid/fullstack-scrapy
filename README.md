@@ -44,8 +44,8 @@ A fullstack application designed to scrapping amazon homepage and get infos like
 We're on!!!
 
 If you want to use the service:
-- ✨ You can use our service through [Web-Site](https://frontend-scrappy.netlify.app/) ✨
-- ✨ You can check our REST API through [APi](https://fullstack-scrapy.onrender.com/api/scrape?keyword=) ✨
+- ✨ You can use our service through [Web-Site](https://frontend-scrappy.netlify.app) ✨
+- ✨ You can check our REST API through [APi](https://fullstack-scrapy.onrender.com/api-docs) ✨
 
 **Please have patience to use the live demo. Responses can be a little bit slow due the fact that the service is hosted by `Render` in Free Tier Plan**
 
